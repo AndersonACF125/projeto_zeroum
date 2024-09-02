@@ -1,0 +1,33 @@
+/* Estilos para o menu de navegação */
+.nav-menu {
+    display: flex; /* Layout flexível */
+    justify-content: center; /* Centralizar os itens do menu */
+    background-color: #333; /* Cor de fundo do menu */
+    padding: 10px; /* Espaçamento interno do menu */
+    border-radius: 5px; /* Bordas arredondadas */
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+    margin: 20px auto; /* Margem superior e inferior */
+    max-width: 800px; /* Largura máxima do menu */
+}
+
+.nav-menu-item {
+    color: #fff; /* Cor do texto do menu */
+    text-decoration: none; /* Remover sublinhado dos links */
+    padding: 10px 15px; /* Espaçamento interno dos itens do menu */
+    font-size: 1em; /* Tamanho da fonte */
+    border-radius: 5px; /* Bordas arredondadas nos itens */
+    transition: background-color 0.3s; /* Transição suave para cor de fundo */
+    background-color: transparent; /* Fundo transparente por padrão */
+    border: none; /* Remover borda padrão dos botões */
+}
+
+.nav-menu-item:hover {
+    background-color: #575757; /* Cor de fundo ao passar o mouse */
+}
+
+/* Estilos para o conteúdo principal */
+.main-content {
+    padding: 20px; /* Espaçamento interno do conteúdo principal */
+    max-width: 1200px; /* Largura máxima do conteúdo */
+    margin: 0 auto; /* Centralizar horizontalmente */
+}

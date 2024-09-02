@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Pesquisar Tarefas/Projetos</title>
+    <style>
+        /* Estilos gerais */
+        body {
+            background-color: #fff; /* Fundo branco */
+            font-family: Arial, sans-serif; /* Fonte padrão */
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Estilo do botão de voltar */
+        .back-button {
+            position: fixed; /* Fixar no canto superior direito */
+            top: 20px;
+            right: 20px;
+            padding: 10px 20px;
+            background-color: #007bff; /* Azul */
+            color: #fff; /* Cor do texto branca */
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 1em;
+            transition: background-color 0.3s;
+        }
+
+        .back-button:hover {
+            background-color: #0056b3; /* Azul escuro ao passar o mouse */
+        }
+
+        /* Estilo para o título */
+        .page-title {
+            border: 1px solid #ccc; /* Borda cinza clara */
+            border-radius: 10px; /* Bordas arredondadas */
+            background-color: #fff; /* Fundo branco */
+            padding: 20px; /* Espaçamento interno */
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+            margin: 20px auto; /* Margem superior e inferior */
+            max-width: 800px; /* Largura máxima */
+            text-align: center; /* Centralizar texto */
+        }
+
+        /* Estilo para o formulário de pesquisa */
+        .search-container {
+            border: 1px solid #ccc; /* Borda cinza clara */
+            border-radius: 10px; /* Bordas arredondadas */
+            background-color: #fff; /* Fundo branco */
+            padding: 20px; /* Espaçamento interno */
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+            margin: 20px auto; /* Margem superior e inferior */
+            max-width: 800px; /* Largura máxima */
+        }
+
+        .search-container input, .search-container select {
+            width: calc(100% - 22px); /* Ajustar largura para espaçamento */
+            padding: 10px; /* Espaçamento interno */
+            border: 1px solid #ccc; /* Borda cinza clara */
+            border-radius: 5px; /* Bordas arredondadas */
+            margin-bottom: 10px; /* Espaçamento abaixo dos campos */
+        }
+
+        .search-container .submit-button {
+            width: 100%; /* Usar a largura total do botão */
+            padding: 10px;
+            background-color: #007bff; /* Azul */
+            color: #fff; /* Cor do texto branca */
+            border: none; /* Remover a borda padrão */
+            border-radius: 5px; /* Bordas arredondadas */
+            cursor: pointer; /* Cursor de ponteiro */
+            font-size: 1em; /* Tamanho da fonte */
+            transition: background-color 0.3s; /* Transição suave para cor de fundo */
+        }
+
+        .search-container .submit-button:hover {
+            background-color: #0056b3; /* Azul escuro ao passar o mouse */
+        }
+
+        /* Estilo para a tabela de resultados */
+        .results-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        .results-table th, .results-table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        .results-table th {
+            background-color: #f2f2f2;
+        }
+
+        .results-table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+    </style>
+    <script>
+        // Função para buscar e exibir os dados dos projetos
+        async function fetchProjects(query = '') {
+            try {
+                const response = await fetch(`/api/projects${query ? '?' + new URLSearchParams(query) : ''}`);
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                const data = await response.json();
+
+                // Adiciona os dados à tabela
+                const tableBody = document.getElementById('projectsTableBody');
+                tableBody.innerHTML = ''; // Limpa o conteúdo existente
+
+                data.forEach(project => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td>${project.id}</td>
+                        <td>${project.title}</td>
+                        <td>${project.description}</td>
+                        <td>${project.startDate}</td>
+                    `;
+                    tableBody.appendChild(row);
+                });
+            } catch (error) {
+                console.error('Erro ao buscar projetos:', error);
+            }
+        }
+
+        // Chama a função ao carregar a página
+        window.onload = () => fetchProjects();
+
+        // Função para buscar projetos com filtros
+        function searchProjects(event) {
+            event.preventDefault(); // Evita o comportamento padrão do formulário
+
+            const title = document.getElementById('title').value;
+            const description = document.getElementById('description').value;
+            const startDate = document.getElementById('startDate').value;
+
+            const query = {
+                title,
+                description,
+                startDate
+            };
+
+            fetchProjects(query);
+        }
+    </script>
+</head>
+<body>
+    <!-- Botão de voltar -->
+    <a href="home.xhtml" class="back-button">Voltar</a>
+
+    <!-- Título da página -->
+    <div class="page-title">
+        <h1>Pesquisar Tarefas/Projetos</h1>
+    </div>
+
+    <!-- Formulário de pesquisa de tarefas -->
+    <div class="search-container">
+        <h2>Filtros de Pesquisa</h2>
+        <form id="searchForm" onsubmit="searchProjects(event)">
+            <p>
+                <label for="title">Título:</label>
+                <input id="title" name="title" type="text" maxlength="100" />
+            </p>
+            <p>
+                <label for="description">Descrição:</label>
+                <input id="description" name="description" type="text" maxlength="250" />
+            </p>
+            <p>
+                <label for="startDate">Data de Início:</label>
+                <input id="startDate" name="startDate" type="date" />
+            </p>
+            <p>
+                <button type="submit" class="submit-button">Pesquisar</button>
+            </p>
+        </form>
+    </div>
+
+    <!-- Tabela de resultados -->
+    <div class="results-container">
+        <h2>Resultados da Pesquisa</h2>
+        <table class="results-table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Título</th>
+                    <th>Descrição</th>
+                    <th>Data de Início</th>
+                </tr>
+            </thead>
+            <tbody id="projectsTableBody">
+                <!-- Dados dos projetos serão inseridos aqui -->
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Menu</title>
+    <style>
+        /* Estilo para o corpo da página */
+        body {
+            background-color: #fff; /* Fundo branco */
+            font-family: Arial, sans-serif; /* Fonte padrão */
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Estilo para o conteúdo principal */
+        .main-content {
+            padding: 20px; /* Espaçamento interno do conteúdo principal */
+            max-width: 800px; /* Largura máxima do conteúdo */
+            margin: 50px auto; /* Margem superior e inferior, centralizar horizontalmente */
+            text-align: center; /* Centralizar o texto */
+            border: 1px solid #ccc; /* Borda cinza clara */
+            border-radius: 10px; /* Bordas arredondadas */
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+        }
+
+        /* Estilo para o título */
+        .main-content h1 {
+            font-size: 2em;
+            margin-bottom: 20px; /* Espaçamento abaixo do título */
+        }
+
+        /* Estilos para o menu de navegação */
+        .nav-menu {
+            display: flex; /* Layout flexível */
+            justify-content: center; /* Centralizar os itens do menu */
+            background-color: #f9f9f9; /* Cor de fundo do menu */
+            padding: 10px; /* Espaçamento interno do menu */
+            border-radius: 5px; /* Bordas arredondadas */
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+            margin: 20px auto; /* Margem superior e inferior */
+            max-width: 800px; /* Largura máxima do menu */
+        }
+
+        .nav-menu-item {
+            color: #fff; /* Cor do texto do menu */
+            text-decoration: none; /* Remover sublinhado dos links */
+            padding: 10px 15px; /* Espaçamento interno dos itens do menu */
+            font-size: 1em; /* Tamanho da fonte */
+            border-radius: 5px; /* Bordas arredondadas nos itens */
+            transition: background-color 0.3s; /* Transição suave para cor de fundo */
+            border: 1px solid #ccc; /* Borda cinza clara */
+            display: inline-block; /* Exibir como bloco inline */
+            margin: 0 5px; /* Espaçamento entre os itens do menu */
+        }
+
+        /* Estilos específicos para cada botão do menu */
+        .nav-menu-item.form-button {
+            background-color: #add8e6; /* Azul claro */
+        }
+
+        .nav-menu-item.list-button {
+            background-color: #90ee90; /* Verde claro */
+        }
+
+        .nav-menu-item.view-button {
+            background-color: #ffcccb; /* Vermelho claro */
+        }
+
+        .nav-menu-item:hover {
+            background-color: #ddd; /* Cor de fundo ao passar o mouse */
+        }
+
+        /* Estilo para a imagem e div abaixo do conteúdo principal */
+        .image-container {
+            text-align: center; /* Centralizar a imagem e a div */
+            margin: 20px auto; /* Margem superior e inferior */
+            max-width: 800px; /* Largura máxima da imagem e div */
+        }
+
+        .image-box {
+            width: 700px; /* Largura fixa da div */
+            height: 350px; /* Altura fixa da div */
+            border: 1px solid #ccc; /* Borda cinza clara */
+            border-radius: 10px; /* Bordas arredondadas */
+            margin: 20px auto; /* Margem superior e inferior */
+            background-color: #f9f9f9; /* Cor de fundo da div */
+            overflow: hidden; /* Ocultar qualquer conteúdo que exceda a div */
+        }
+
+        .image-box img {
+            width: 100%; /* Largura da imagem 100% da div */
+            height: 100%; /* Altura da imagem 100% da div */
+            object-fit: cover; /* Cobrir a área da div mantendo a proporção da imagem */
+        }
+    </style>
+</head>
+<body>
+    <!-- Menu de navegação -->
+    <div class="nav-menu">
+        <a href="cadastro.xhtml" class="nav-menu-item form-button">Cadastro Tarefas</a>
+        <a href="listtar.xhtml" class="nav-menu-item list-button">Lista Tarefas</a>
+        <a href="cadastrop.xhtml" class="nav-menu-item form-button">Cadastro Projetos</a>
+        <a href="list.xhtml" class="nav-menu-item list-button">Lista Projetos</a>
+    </div>
+    
+    <!-- Conteúdo principal -->
+    <div class="main-content">
+        <h1>Bem-vindo ao Menu do Projeto</h1>
+        <!-- Adicione aqui o conteúdo principal da página -->
+    </div>
+
+    <!-- Imagem e div ajustável -->
+    <div class="image-container">
+        <!-- Div com imagem fixa -->
+        <div class="image-box">
+            <!-- Imagem dentro da div -->
+            <img src="148318.jpg" alt="Beltis" />
+        </div>
+    </div>
+</body>
+</html>

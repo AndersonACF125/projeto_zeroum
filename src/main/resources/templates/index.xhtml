@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Cadastro de Projetos</title>
+    <style>
+        /* Estilos gerais */
+        body {
+            background-color: #fff; /* Fundo branco */
+            font-family: Arial, sans-serif; /* Fonte padrão */
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Estilo para o botão de voltar */
+        .back-button {
+            position: fixed; /* Fixar no canto superior direito */
+            top: 20px;
+            right: 20px;
+            padding: 10px 20px;
+            background-color: #007bff; /* Azul */
+            color: #fff; /* Cor do texto branca */
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 1em;
+            transition: background-color 0.3s;
+        }
+
+        .back-button:hover {
+            background-color: #0056b3; /* Azul escuro ao passar o mouse */
+        }
+
+        /* Estilo para o título */
+        .page-title {
+            border: 1px solid #ccc; /* Borda cinza clara */
+            border-radius: 10px; /* Bordas arredondadas */
+            background-color: #fff; /* Fundo branco */
+            padding: 20px; /* Espaçamento interno */
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+            margin: 20px auto; /* Margem superior e inferior */
+            max-width: 800px; /* Largura máxima */
+            text-align: center; /* Centralizar texto */
+        }
+
+        /* Estilo para o formulário de tarefa */
+        .form-container {
+            border: 1px solid #ccc; /* Borda cinza clara */
+            border-radius: 10px; /* Bordas arredondadas */
+            background-color: #fff; /* Fundo branco */
+            padding: 20px; /* Espaçamento interno */
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+            margin: 20px auto; /* Margem superior e inferior */
+            max-width: 800px; /* Largura máxima */
+        }
+
+        .form-container input, .form-container select, .form-container textarea {
+            width: calc(100% - 22px); /* Ajustar largura para espaçamento */
+            padding: 10px; /* Espaçamento interno */
+            border: 1px solid #ccc; /* Borda cinza clara */
+            border-radius: 5px; /* Bordas arredondadas */
+            margin-bottom: 10px; /* Espaçamento abaixo dos campos */
+        }
+
+        .form-container textarea {
+            height: 100px; /* Altura do campo de texto */
+        }
+
+        .form-container .submit-button {
+            width: 100%; /* Usar a largura total do botão */
+            padding: 10px;
+            background-color: #28a745; /* Verde */
+            color: #fff; /* Cor do texto branca */
+            border: none; /* Remover a borda padrão */
+            border-radius: 5px; /* Bordas arredondadas */
+            cursor: pointer; /* Cursor de ponteiro */
+            font-size: 1em; /* Tamanho da fonte */
+            transition: background-color 0.3s; /* Transição suave para cor de fundo */
+        }
+
+        .form-container .submit-button:hover {
+            background-color: #218838; /* Verde escuro ao passar o mouse */
+        }
+    </style>
+</head>
+<body>
+    <!-- Botão de voltar -->
+    <a href="home.xhtml" class="back-button">Voltar</a>
+
+    <!-- Título da página -->
+    <div class="page-title">
+        <h1>Cadastro de Projetos</h1>
+    </div>
+
+    <!-- Formulário de cadastro de tarefa -->
+    <div class="form-container">
+        <h2>Adicionar Novo Projeto</h2>
+        <form>
+            <p>
+                <label for="title">Título:</label>
+                <input id="title" name="title" type="text" maxlength="100" required="required" />
+            </p>
+            <p>
+                <label for="description">Descrição:</label>
+                <textarea id="description" name="description" rows="5" maxlength="250" required="required"></textarea>
+            </p>
+            <p>
+                <label for="startDate">Data de Início:</label>
+                <input id="startDate" name="startDate" type="date" required="required" />
+            </p>
+            <p>
+                <label for="priority">Prioridade:</label>
+                <select id="priority" name="priority" required="required">
+                    <option value="">Selecione</option>
+                    <option value="Muito Alta">Muito Alta</option>
+                    <option value="Alta">Alta</option>
+                    <option value="Baixa">Baixa</option>
+                    <option value="Muito Baixa">Muito Baixa</option>
+                </select>
+            </p>
+
+            <p>
+                <button type="submit" class="submit-button">Adicionar Projeto</button>
+            </p>
+        </form>
+    </div>
+</body>
+</html>

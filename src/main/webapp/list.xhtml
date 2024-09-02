@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Lista de Projetos</title>
+    <style>
+        /* Estilos gerais */
+        body {
+            background-color: #fff; /* Fundo branco */
+            font-family: Arial, sans-serif; /* Fonte padrão */
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Estilo para o conteúdo principal */
+        .main-content {
+            padding: 20px; /* Espaçamento interno do conteúdo principal */
+            max-width: 800px; /* Largura máxima do conteúdo */
+            margin: 50px auto; /* Margem superior e inferior, centralizar horizontalmente */
+        }
+
+        /* Estilo para o botão de voltar */
+        .back-button {
+            position: fixed; /* Fixar no canto superior direito */
+            top: 20px;
+            right: 20px;
+            padding: 10px 20px;
+            background-color: #007bff; /* Azul */
+            color: #fff; /* Cor do texto branca */
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 1em;
+            transition: background-color 0.3s;
+        }
+
+        .back-button:hover {
+            background-color: #0056b3; /* Azul escuro ao passar o mouse */
+        }
+
+        /* Estilo para o título */
+        .title-container {
+            padding: 20px;
+            border: 1px solid #ccc; /* Borda cinza clara */
+            background-color: #fff; /* Fundo branco */
+            border-radius: 10px; /* Bordas arredondadas */
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+            margin-bottom: 20px; /* Espaçamento abaixo do título */
+            text-align: center; /* Centralizar o texto */
+        }
+
+        .title-container h1 {
+            margin: 0; /* Remover margens padrão */
+            font-size: 1.5em; /* Tamanho da fonte */
+        }
+
+        /* Estilo para a lista de projetos */
+        .project-list {
+            border: 1px solid #ccc; /* Borda cinza clara */
+            border-radius: 10px; /* Bordas arredondadas */
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+            padding: 0;
+            margin: 0;
+            list-style: none; /* Remover marcadores de lista */
+        }
+
+        .project-item {
+            padding: 10px;
+            border-bottom: 1px solid #eee; /* Linha cinza claro */
+        }
+
+        .project-item:nth-child(even) {
+            background-color: #f9f9f9; /* Fundo cinza claro para linhas pares */
+        }
+
+        .project-item:last-child {
+            border-bottom: none; /* Remover a borda inferior do último item */
+        }
+
+        .project-actions {
+            margin-top: 10px; /* Espaçamento acima das ações */
+        }
+
+        .project-button {
+            padding: 5px 10px;
+            border: 1px solid #ccc; /* Borda cinza clara */
+            border-radius: 5px; /* Bordas arredondadas */
+            text-decoration: none; /* Remover sublinhado dos links */
+            font-size: 0.9em;
+            margin-right: 5px; /* Espaçamento entre os botões */
+            transition: background-color 0.3s; /* Transição suave para cor de fundo */
+        }
+
+        .project-button.view {
+            background-color: #007bff; /* Azul */
+            color: #fff; /* Cor do texto branca */
+        }
+
+        .project-button.edit {
+            background-color: #28a745; /* Verde */
+            color: #fff; /* Cor do texto branca */
+        }
+
+        .project-button.delete {
+            background-color: #dc3545; /* Vermelho */
+            color: #fff; /* Cor do texto branca */
+        }
+
+        .project-button:hover {
+            opacity: 0.8; /* Efeito ao passar o mouse */
+        }
+
+        /* Estilo para navegação */
+        .pagination {
+            text-align: center; /* Centralizar os controles de navegação */
+            margin-top: 20px; /* Espaçamento acima dos controles */
+        }
+
+        .pagination a {
+            padding: 10px 15px;
+            border: 1px solid #ccc; /* Borda cinza clara */
+            border-radius: 5px; /* Bordas arredondadas */
+            text-decoration: none; /* remove os sublinhados dos links */
+            color: #007bff; /* Cor do texto azul */
+            margin: 0 5px; /* Espaçamento entre os botoes */
+            transition: background-color 0.3s; /* Transicao para cor de fundo */
+        }
+
+        .pagination a:hover {
+            background-color: #f1f1f1; /* Cor de fundo ao passar o mouse */
+        }
+
+        .pagination .active {
+            background-color: #007bff; /* Azul para o botão ativo */
+            color: #fff; /* Cor do texto branca */
+            border: 1px solid #007bff; /* Borda azul */
+        }
+    </style>
+</head>
+<body>
+    <!-- Botão de voltar -->
+    <a href="home.xhtml" class="back-button">Voltar</a>
+
+    <!-- Conteúdo principal -->
+    <div class="main-content">
+        <!-- Título da página -->
+        <div class="title-container">
+            <h1>Lista de Projetos</h1>
+        </div>
+
+        <!-- Lista de projetos -->
+        <ul class="project-list">
+            <th:block th:each="project : ${projects}">
+                <li class="project-item">
+                    <span th:text="${project.titulo}">Título do Projeto</span>: 
+                    <span th:text="${project.descricao}">Descrição do Projeto</span>
+                    <div class="project-actions">
+                        <a th:href="@{viewTask?id=${project.id}}" class="project-button view">Visualizar</a>
+                        <a th:href="@{editTask?id=${project.id}}" class="project-button edit">Editar</a>
+                        <a th:href="@{deleteTask?id=${project.id}}" class="project-button delete">Excluir</a>
+                    </div>
+                </li>
+            </th:block>
+        </ul>
+
+        <!-- Navegação de páginas -->
+        <div class="pagination">
+            <a href="#prev" class="pagination-link">&#171; Anterior</a>
+            <a href="#1" class="pagination-link active">1</a>
+            <a href="#2" class="pagination-link">2</a>
+            <a href="#3" class="pagination-link">3</a>
+            <a href="#next" class="pagination-link">Próximo &#187;</a>
+        </div>
+    </div>
+</body>
+</html>
