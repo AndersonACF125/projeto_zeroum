@@ -90,7 +90,9 @@ https://github.com/AndersonACF125/projeto_zeroum
 
 # Importe o projeto para o STS
 
-![alt text](img_readme/tela1.jgp)
+<p align="center" style="display: flex; align-items: flex-start; justify-content: center;">
+<img alt="Cadastro" title="cad" src="img_readme/tela1.jpg" width="400px">
+<p>
 
 # Escolha Maven e depois Existing Maven Projects e clique em Next
 
