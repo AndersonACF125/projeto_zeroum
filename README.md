@@ -83,7 +83,7 @@ A aplicação podera ser rodada em outras IDEs, porem precisa Instalar o Tomcat 
 
 #### 🎲 Rodando o Backend (servidor)
 
-```bash
+
 
 # Faça o Download do repositório
 https://github.com/AndersonACF125/projeto_zeroum
