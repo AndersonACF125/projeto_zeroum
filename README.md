@@ -77,6 +77,9 @@ Este projeto é divido em Duas partes:
 
 Antes de começar, você vai precisar ter instalado em sua máquina as seguintes ferramentas:
 
+MYSQL - pode ser o XAMPP 
+BAIXAR O SCRIPT SLQ COM NOME BELTIS E IMPORTAR, DEPOIS QUE IMPORTAR O PROJETO PARA O STS, MODIFIFICAR OS DADOS DO APPLICATION.PROPERTIES COM NOME DE USUARIO, SENHA E NOME DO SEU BANCO.
+
 Além disto é bom ter um editor para trabalhar com o código como [Spring Tool Suite (STS)](https://spring.io/tools)
 este IDE foi escolhido para que seja menos moroso em subir a aplicação.
 A aplicação podera ser rodada em outras IDEs, porem precisa Instalar o Tomcat 8, JDK 1.8, e Mavem. Além de configurar as variaveis dentro do Windows. (Feito teste com IDE Eclipse Mars2 e funcionou perfeitamente)
@@ -127,14 +130,5 @@ As seguintes ferramentas foram usadas na construção do projeto:
 
 ## 🧙‍♂️ Autor
 
- <br />
- <sub><b>Anderson de Carvalho Fernandes</b></sub></a> <a href="https://github.com/AndersonACF125">✨</a>
- <br />
 
----
-
-## 📝 Licença
-
-<!-- Este projeto esta sobe a licença [MIT](./LICENSE). -->
-
-
+Anderson de Carvalho Fernandes
