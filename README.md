@@ -90,19 +90,19 @@ https://github.com/AndersonACF125/projeto_zeroum
 
 # Importe o projeto para o STS
 
-<p align="center" style="display: flex; align-items: flex-start; justify-content: center;">
 <img alt="Cadastro" title="cad" src="img_readme/tela1.jpg" width="400px">
-<p>
 
 # Escolha Maven e depois Existing Maven Projects e clique em Next
 
-![alt text](img_readme/tela2.jgp)
+<img alt="Cadastro" title="cad" src="img_readme/tela2.jpg" width="400px">
 
 # Busque o diretorio onde salvou o projeto 
-![alt text](img_readme/tela3.jgp)
+
+<img alt="Cadastro" title="cad" src="img_readme/tela3.jpg" width="400px">
 
 # Execute a aplicação (com o botão direito do mouse em cia do projeto importado, clique em Run as -> Spring Boot App)
-![alt text](img_readme/tela4.jgp)
+
+<img alt="Cadastro" title="cad" src="img_readme/tela4.jpg" width="400px">
 
 # O servidor inciará na porta:8080 - acesse http://localhost:8080/home.xhtml
 
